@@ -1,0 +1,6 @@
+easy_admin:
+    entities:
+        - App\Entity\Job
+        - App\Entity\Company
+        - App\Entity\JobType
+        - App\Entity\Location
