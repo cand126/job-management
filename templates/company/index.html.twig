@@ -1,0 +1,30 @@
+{% extends "layout.html.twig" %}
+
+{% block javascripts %}{% endblock %}
+{% block stylesheets %}{% endblock %}
+
+{% block content %}
+    <div class="d-flex flex-column container-fluid">
+    <form class="form-inline ml-auto">
+        <div class="form-group">
+            <input type="text" class="form-control" id="titleSearchInput" placeholder="Search by keywords">
+        </div>
+    </form>
+    <div class="card-columns">
+        {% for company in companys %}
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title">{{ company.name }}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{ company.location }}</h6>
+                </div>
+                <div class="d-flex flex-column card-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Description: {{ company.description }}</li>
+                        <li class="list-group-item">Agent: {{ company.agent }}</li>
+                    </ul>
+                    <a role="button" class="btn btn-outline-info btn-lg btn-block" href="{{ company.link }}">Learn More</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -1,0 +1,17 @@
+form {
+  margin-top: 16px;
+  .form-group {
+    input {
+      width: 300px !important;
+    }
+  }
+}
+
+.card-columns {
+  column-count: 6;
+  .card {
+    p {
+      margin: 0;
+    }
+  }
+}
