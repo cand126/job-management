@@ -8,11 +8,36 @@ use App\Entity\Job;
 class JobController extends Controller
 {
     /**
-     * @Route("/job", name="job_index")
+     * @Route("/jobs", name="job_index")
      */
     public function index()
     {
         $jobs = $this->getDoctrine()->getRepository(Job::class)->findAll();
+        $jobs = $this->formatJobTitles($jobs);
+
+        return $this->render('jobs/index.html.twig', array(
+            'jobs' => $jobs,
+            'applied' => 'all'
+        ));
+    }
+
+    /**
+     * @Route("/jobs/applied/{status}", name="job_status")
+     */
+    public function getJobStatus($status)
+    {
+        $jobs = $this->getDoctrine()->getRepository(Job::class)->findBy(
+            ['applied' => $status]
+        );
+        $jobs = $this->formatJobTitles($jobs);
+        
+        return $this->render('jobs/index.html.twig', array(
+            'jobs' => $jobs,
+            'applied' => $status
+        ));
+    } 
+
+    private function formatJobTitles($jobs) {
         foreach ($jobs as &$job) {
             $job->setTitle(ucwords(strtolower($job->getTitle())));
             $job->setTitle(ucwords($job->getTitle(), '-'));
@@ -21,8 +46,6 @@ class JobController extends Controller
             $job->setTitle(str_replace("java", "Java", $job->getTitle()));
             $job->setTitle(str_replace("symfony", "Symfony", $job->getTitle()));
         }
-        return $this->render('job/index.html.twig', array(
-            'jobs' => $jobs,
-        ));
+        return $jobs;
     }
 }

@@ -23,3 +23,12 @@ $('#titleSearchInput').on('input', (e) => {
         }
     }
 });
+
+$('#statusSelect').change((e) => {
+    const status = $(e.target).val();
+    if (status === '') {
+        window.location = '/jobs';
+    } else {
+        window.location = '/jobs/applied/' + status;
+    }
+});

@@ -13,13 +13,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class CompanyController extends Controller
 {
     /**
-     * @Route("/company", name="company_index")
+     * @Route("/companys", name="company_index")
      */
     public function index()
     {
         $companys = $this->getDoctrine()->getRepository(Company::class)->findAll();
 
-        return $this->render('company/index.html.twig', [
+        return $this->render('companys/index.html.twig', [
             'companys' => $companys,
         ]);
     }

@@ -1,14 +1,18 @@
 form {
   margin-top: 16px;
   .form-group {
-    input {
+    #statusSelect {
+      width: 150px;
+      margin: 0 16px;
+    }
+    #titleSearchInput {
       width: 300px !important;
+      height: 41px;
     }
   }
 }
 
 .card-columns {
-  column-count: 6;
   .card {
     p {
       margin: 0;
