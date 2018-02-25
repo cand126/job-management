@@ -82,5 +82,5 @@ fabric.properties
 /node_modules/
 
 # Webpack
-
 /public/
+/assets/images/

@@ -1,4 +1,7 @@
 require('../css/app.scss');
+require('../images/cover1.jpg');
+require('../images/cover2.jpg');
+require('../images/cover3.jpg');
 
 var $ = require('jquery');
 
