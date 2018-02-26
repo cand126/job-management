@@ -26,8 +26,9 @@ class JobController extends Controller
      */
     public function getJobStatus($status)
     {
+        $status == 'true' ? $statusBool = true : $statusBool = false;
         $jobs = $this->getDoctrine()->getRepository(Job::class)->findBy(
-            ['applied' => $status]
+            ['applied' => $statusBool]
         );
         $jobs = $this->formatJobTitles($jobs);
         

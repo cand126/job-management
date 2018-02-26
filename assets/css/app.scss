@@ -19,3 +19,7 @@ form {
     }
   }
 }
+
+.carousel-inner {
+  height: calc(100vh - 56px);
+}
